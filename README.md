@@ -1,4 +1,4 @@
-# SSV Discovery
+# SSV Discovery (Using Cursor and AugmentAI)
 
 A modern and elegant talent discovery platform that helps recruiters find students based on natural language queries and advanced filters. The platform connects recruiters with talented students and fresh graduates from SSV College.
 
