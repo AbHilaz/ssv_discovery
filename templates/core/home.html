@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+
+{% block title %}SSV Discovery - Find Exceptional Talent{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary-blue: #2196F3;
+        --light-blue: #E3F2FD;
+        --text-dark: #1A1A1A;
+        --text-gray: #666666;
+        --background-light: #F8FAFB;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding: 4rem 0;
+        background-color: white;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background-color: var(--light-blue);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+        color: var(--primary-blue);
+        font-weight: 500;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .hero-title span {
+        color: var(--primary-blue);
+    }
+
+    .hero-subtitle {
+        color: var(--text-gray);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        margin-bottom: 4rem;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+    }
+
+    .btn-primary:hover {
+        background-color: #1976D2;
+        border-color: #1976D2;
+    }
+
+    .btn-outline {
+        border: 1px solid #E0E0E0;
+        color: var(--text-dark);
+        background: white;
+        padding: 0.75rem 1.5rem;
+        margin-left: 1rem;
+        font-weight: 500;
+    }
+
+    .btn-outline:hover {
+        background-color: #F5F5F5;
+    }
+
+    .featured-section {
+        padding: 4rem 0;
+        background-color: var(--background-light);
+    }
+
+    .featured-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .featured-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .featured-subtitle {
+        color: var(--text-gray);
+    }
+
+    .profile-card {
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background: white;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-avatar {
+        width: 50px;
+        height: 50px;
+        background: var(--light-blue);
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-weight: bold;
+        color: var(--primary-blue);
+    }
+
+    .profile-info h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    .profile-info p {
+        margin: 0;
+        color: var(--text-gray);
+        font-size: 0.9rem;
+    }
+
+    .skill-tags {
+        margin: 1rem 0;
+    }
+
+    .skill-tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--background-light);
+        border-radius: 15px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-gray);
+    }
+
+    .profile-description {
+        color: var(--text-gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .experience-section {
+        margin-top: 1rem;
+    }
+
+    .experience-section h4 {
+        font-size: 0.8rem;
+        color: var(--text-gray);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .experience-item {
+        font-size: 0.9rem;
+        color: var(--text-dark);
+    }
+
+    .profile-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+
+    .btn-link {
+        color: var(--primary-blue);
+        text-decoration: none;
+    }
+
+    .btn-link:hover {
+        color: #1976D2;
+        text-decoration: none;
+    }
+
+    .featured-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--light-blue);
+        color: var(--primary-blue);
+        border-radius: 15px;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    .view-all-section {
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .cta-section {
+        text-align: center;
+        padding: 4rem 0;
+        background: white;
+        margin-top: 4rem;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-badge">SSV College Talent Platform</div>
+    <h1 class="hero-title">Discover <span>Exceptional Talent</span><br>From SSV College</h1>
+    <p class="hero-subtitle">Connect with skilled students and fresh graduates ready to bring innovation and energy to your organization.</p>
+    <div class="hero-buttons">
+        <a href="{% url 'discover' %}" class="btn btn-primary">Discover Talent</a>
+        <a href="{% url 'register' %}" class="btn btn-outline">Create Your Profile</a>
+    </div>
+</section>
+
+<!-- Featured Talent Section -->
+<section class="featured-section">
+    <div class="featured-header">
+        <h2 class="featured-title">Featured Talent</h2>
+        <p class="featured-subtitle">Discover some of our standout profiles ready to bring value to your organization</p>
+    </div>
+
+    <div class="row">
+        <!-- Featured Profile 1 -->
+        <div class="col-md-4">
+            <div class="card profile-card">
+                <div class="featured-badge">Featured Profile</div>
+                <div class="profile-header">
+                    <div class="profile-avatar">AJ</div>
+                    <div class="profile-info">
+                        <h3>Alex Johnson</h3>
+                        <p>Senior Frontend Developer</p>
+                    </div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">+4 more</span>
+                </div>
+                <p class="profile-description">Passionate frontend developer with 6+ years of experience building responsive, intuitive user interfaces.</p>
+                <div class="experience-section">
+                    <h4>EXPERIENCE</h4>
+                    <div class="experience-item">
+                        <strong>UX Designer</strong> at Slack
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="#" class="btn btn-link">Contact</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Profile 2 -->
+        <div class="col-md-4">
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">TS</div>
+                    <div class="profile-info">
+                        <h3>Taylor Smith</h3>
+                        <p>Full Stack Developer</p>
+                    </div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">+4 more</span>
+                </div>
+                <p class="profile-description">Full stack developer who loves solving complex problems with clean, efficient code. Experience with both frontend and backend.</p>
+                <div class="experience-section">
+                    <h4>EXPERIENCE</h4>
+                    <div class="experience-item">
+                        <strong>Technical Writer</strong> at Shopify
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="#" class="btn btn-link">Contact</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Profile 3 -->
+        <div class="col-md-4">
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">JL</div>
+                    <div class="profile-info">
+                        <h3>Jordan Lee</h3>
+                        <p>UX/UI Designer</p>
+                    </div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">UI/UX</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Sketch</span>
+                    <span class="skill-tag">Adobe XD</span>
+                    <span class="skill-tag">+4 more</span>
+                </div>
+                <p class="profile-description">Creative UX/UI designer focused on crafting beautiful, intuitive interfaces. I believe in user-centered design principles.</p>
+                <div class="experience-section">
+                    <h4>EXPERIENCE</h4>
+                    <div class="experience-item">
+                        <strong>UX Designer</strong> at Google
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                    <a href="#" class="btn btn-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view-all-section">
+        <a href="#" class="btn btn-outline">View All Profiles</a>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <h2 class="cta-title">Ready to Showcase Your Talent?</h2>
+    <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Create Your Profile</a>
+</section>
+{% endblock %} 
